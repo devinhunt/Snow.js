@@ -4,7 +4,23 @@
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
+ * 
+ * Edited for snow.js by Devin Hunt
  */
+
+ /* =============================================================================
+    Ostrich Fontface. From the League of Type.
+    ========================================================================== */
+@font-face {
+    font-family: 'OstrichSansRoundedMedium';
+    src: url('../media/ostrich_rounded-webfont.eot');
+    src: url('../media/ostrich_rounded-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../media/ostrich_rounded-webfont.woff') format('woff'),
+        url('../media/ostrich_rounded-webfont.ttf') format('truetype'),
+        url('../media/ostrich_rounded-webfont.svg#OstrichSansRoundedMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 /* =============================================================================
@@ -35,14 +51,8 @@ body { margin: 0; font-size: 13px; line-height: 1.231; }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
-/* 
- * These selection declarations have to be separate
- * No text-shadow: twitter.com/miketaylr/status/12228805301
- * Also: hot pink!
- */
-
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { text-shadow: none; }
+::selection { text-shadow: none; }
 
 
 /* =============================================================================
@@ -197,13 +207,42 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 /* =============================================================================
-   Primary styles
+   Primary styles - Layout
+   @author Devin Hunt
    ========================================================================== */
 
 
+
 body {
-    background: #000;
+    background: #888;
 }
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+/* =============================================================================
+   Primary styles - Typography
+   @author Devin Hunt
+   ========================================================================== */
+   
+h1 {
+    font-family: 'OstrichSansRoundedMedium';
+    font-size: 72px;
+    margin: 0;
+    color: #fff;
+    text-shadow: 0px 2px 5px #eee;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 300;
+    margin: 0;
+    color: #fff;
+}
+
 
 
 /* =============================================================================
@@ -233,14 +272,6 @@ body {
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
-
-
-/* =============================================================================
-   PLACEHOLDER Media Queries for Responsive Design.
-   These override the primary ('mobile first') styles
-   Modify as content requires.
-   ========================================================================== */
 
 @media only screen and (min-width: 480px) {
   /* Style adjustments for viewports 480px and over go here */

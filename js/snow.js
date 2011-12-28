@@ -16,7 +16,9 @@
      * Default options for spawning and controlling the snowflakes
      */ 
     var defaults = {
-        spawnRate: 1,       // expressed in flakes per second
+        spawnRate: 1,       // expressed in flakes per second 1 is a light snow. 100 is blizzard. 
+        windAngle: 0,       // 0 is straight down. Math.PI is to the right
+        windForce: .5       // .5 is normal force. 1 is gail force winds, lots of fluffing about.
     };
     
     /**
@@ -29,13 +31,12 @@
         this.y = y;
         this.zDepth = Math.random() * 2 - 1;   // -1 to 1. 1 == very close the the 'camera'. 0 == in focus. 
         this.vx = Math.random() * 100 - 50;
-        this.vy = Math.random() * 200;
+        this.vy = 100 + this.zDepth * 50;     // make a depth of field using zdepth
         this.radius = Math.floor(Math.random() * 5) + 1;
         this.isMelted = false;
         
         this.el = document.createElement('div');
-        this.el.id = 'snowframe';
-        this.el.className = 'snowframe';
+        this.el.className = 'flake';
         this.el.style.position = 'absolute';
         this.el.style.left = '0';
         this.el.style.top = '0';
@@ -116,17 +117,17 @@
         _update: function() {
             this.then = this.now;
             this.now = Date.now();
-            var delta = this.now - this.then,
+            var delta = (this.now - this.then) / 1000,
                 bounds = {top: 0, right: this.el.scrollWidth, bottom: this.el.scrollHeight, left: 0},
                 toCull = [],
                 flake;
             
             // spawn new guys
-            this._spawnFlakes(Math.floor(defaults.spawnRate * delta / 1000));
+            this._spawnFlakes(Math.floor(defaults.spawnRate * delta));
             
             for(var i = 0; i < this.flakes.length; i ++) {
                 flake = this.flakes[i];
-                flake.update(delta / 1000);
+                flake.update(delta);
                 
                 // kill flakes off screen
                 if(flake.x > bounds.right || flake.x < bounds.left || flake.y > bounds.bottom) {
@@ -140,7 +141,7 @@
             
             if(this.isRunning) {
                 var _this = this;
-                setTimeout(function() { _this._update(); }, 10);
+                setTimeout(function() { _this._update(); }, 1);
             }
         },
         
