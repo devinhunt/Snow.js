@@ -1,6 +1,7 @@
 /**
  * Snow.js
- * Add a little snow to your website
+ * Add a little snow to your website.
+ * By Devin Hunt (MIT Licensed)
  */
 
 (function() {
