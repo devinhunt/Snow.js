@@ -11,18 +11,82 @@
     
     <div class="container">
         <header>
-            <h1>Snow.js</h1>
-            <h2>For that little holiday zazz</h2>
+            <h1 class="large">Snow.js</h1>
+            <h2>For all your holiday zazz</h2>
         </header>
         
         <div class="main">
-             
+            <section> 
+                <header>
+                    <h1>
+                        Get It
+                    </h1>
+                </header>
+                <p>
+                    Snow.js is hosted on <a href="https://github.com/devinhunt/Snow.js">github</a>. Grab the script <a href="https://raw.github.com/devinhunt/Snow.js/master/js/snow.js">here</a>.
+                </p>
+            </section>
+            <section> 
+                <header>
+                    <h1>
+                        How to use it
+                    </h1>
+                </header>
+                <p>
+                    Just add the script at the bottom of your site, create a snow object, and start it!
+                </p>
+<pre>
+&lt;script src="js/snow.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    // Let it snow, let it snow, let it snow!
+    window.snow = new Snow();
+    window.snow.start();
+&lt;/script&gt;
+</pre>
+            </section>
+            
+            <section> 
+                <header>
+                    <h1>
+                        To Do
+                    </h1>
+                </header>
+                <p>
+                    Since this was made quite hasilty - just a sketch - it currently only works in webkit-based browsers (Chrome, Safari). Some things I'd like accomplish:
+                </p>
+                <ul>
+                    <li>
+                        Firefox Compatibility
+                    </li>
+                    <li>
+                        Opera Compatibility
+                    </li>
+                    <li>
+                        IE6-10 Compatibility
+                    </li>
+                    <li>
+                        Customizable snow behavior
+                    </li>
+                    <li>
+                        Reactive snow
+                    </li>
+                    <li>
+                        Use CSS3 transform for performace enhancements
+                    </li>
+                    <li>
+                        Genereal performance enhancements
+                    </li>
+                    <li>
+                        Canvas based rendering option
+                    </li>
+                </ul>
         </div>
         
         <footer>
             <p>
                 Snow.js was made by @hailpixel while recovering from christmas dinner.
             </p>
+        
         </footer>
     </div>
     
@@ -32,8 +96,8 @@
     
     <script>
         // Let it snow, let it snow, let it snow!
-        var snow = new Snow();
-        snow.start();
+        window.snow = new Snow();
+        window.snow.start();
     </script>
 </body>
 </html>

@@ -82,14 +82,14 @@
         this.el = document.createElement('div');
         this.el.id = 'snowframe';
         this.el.className = 'snowframe';
-        this.el.style.position = 'absolute';
+        this.el.style.position = 'fixed';
         this.el.style.left = '0';
         this.el.style.top = '0';
         this.el.style.width = '100%';
         this.el.style.height = '100%';
-        this.el.style.zIndex = '9999';
+        this.el.style.zIndex = '-1';
         this.el.style.overflow = 'hidden';
-        document.body.appendChild(this.el);
+        document.body.insertBefore(this.el, document.body.firstChild);
     };
     Snow.prototype = {
         
